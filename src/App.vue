@@ -1,28 +1,27 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <input type="text" v-stream:input="input$">
+    {{ message$ }}
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import { pluck, scan } from 'rxjs/operators'
+
+let subscriptions = function() {
+  let message$ = this.input$.pipe(
+    pluck('event', 'data'),
+    scan((a, x) => a + x)
+  )
+
+  return { message$ }
+}
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
+  name: 'app',
+  domStreams: [
+    'input$'
+  ],
+  subscriptions
 }
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>

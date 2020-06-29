@@ -1,0 +1,39 @@
+{
+  "books": [
+    {
+      "id": 1,
+      "title": "FP in JavaScript",
+      "price": 100,
+      "categoryId": 1,
+      "image": "fpjs.jpg"
+    },
+    {
+      "id": 2,
+      "title": "RxJS in Action",
+      "price": 200,
+      "categoryId": 2,
+      "image": "rxjs.jpg"
+    },
+    {
+      "id": 3,
+      "title": "Speaking JavaScript",
+      "price": 300,
+      "categoryId": 3,
+      "image": "spjs.jpg"
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "category": "FP"
+    },
+    {
+      "id": 2,
+      "category": "FRP"
+    },
+    {
+      "id": 3,
+      "category": "JS"
+    }
+  ]
+}
